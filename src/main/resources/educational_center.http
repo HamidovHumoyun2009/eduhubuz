@@ -1,0 +1,40 @@
+###
+POST localhost:8080/api/v1/educational-center/create
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE3MTY0NTAxNjEsImlkIjoxLCJyb2xlIjoiQURNSU4iLCJleHAiOjE3MTY1MzY1NjEsImlzcyI6InRlc3QifQ.yfwL-ZG8E1EZTuad00yJldA_ZcLT2sNg1Kpmf6yI1-U
+
+{
+  "name": "PDP university",
+  "address": "Sergeli",
+  "contactInfo": "Dilnoza",
+  "info": "IT maktab",
+  "eduCenterType": "UNIVERSITY"
+}
+
+###
+PUT localhost:8080/api/v1/educational-center/update-by-id/1
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE3MTY0NTAxNjEsImlkIjoxLCJyb2xlIjoiQURNSU4iLCJleHAiOjE3MTY1MzY1NjEsImlzcyI6InRlc3QifQ.yfwL-ZG8E1EZTuad00yJldA_ZcLT2sNg1Kpmf6yI1-U
+
+{
+  "name": "Cambridge",
+  "address": "Ko'kcha",
+  "contactInfo": "Aliyev",
+  "info": "Ali"
+}
+
+###
+DELETE localhost:8080/api/v1/educational-center/delete-by-id/1
+Authorization: Bearer eyJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE3MTYzODMwNDgsImlkIjoxLCJyb2xlIjoiQURNSU4iLCJleHAiOjE3MTY0Njk0NDgsImlzcyI6InRlc3QifQ.IIDosXntVsG6otuuWnz1Cyvj94dwL8dj7QF_-j75jkU
+
+###
+GET localhost:8080/api/v1/educational-center/get-all
+
+###
+GET localhost:8080/api/v1/educational-center/get-by-id/1
+
+###
+GET localhost:8080/api/v1/educational-center/get-by-name/PDP university
+
+###
+GET localhost:8080/api/v1/educational-center/get-by-address/Sergeli

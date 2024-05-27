@@ -1,0 +1,41 @@
+###
+POST http://localhost:8080/api/v1/edu_speciality/create
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE3MTY0NTcxOTcsImlkIjoxLCJyb2xlIjoiQURNSU4iLCJleHAiOjE3MTY1NDM1OTcsImlzcyI6InRlc3QifQ._KKmEnfkbtKD72SuS_1mD1714EAp-F9Zkr-tV1mBchI
+
+{
+  "name": "PDP",
+  "info": "Maktab",
+  "edu_center_id": 1
+}
+
+###
+GET localhost:8080/api/v1/edu_speciality/get-all
+
+###
+GET localhost:8080/api/v1/edu_speciality/get-by-id/4
+
+###
+GET localhost:8080/api/v1/edu_speciality/get-by-edu-center-id/3
+
+###
+GET localhost:8080/api/v1/edu_speciality/get-by-name/PDP
+
+###
+GET localhost:8080/api/v1/edu_speciality/get-by-info/Maktab
+
+###
+DELETE localhost:8080/api/v1/edu_speciality/delete-by-id/3
+Authorization: Bearer eyJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE3MTY0NDA3OTQsImlkIjoyLCJyb2xlIjoiQURNSU4iLCJleHAiOjE3MTY1MjcxOTQsImlzcyI6InRlc3QifQ.RBD-yCuhuMZNYnj2zsXzCugRLG8aTMAKkevki5T-ca0
+
+
+###
+PUT localhost:8080/api/v1/edu_speciality/update-by-id/4
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE3MTY0NTc3MjAsImlkIjoxLCJyb2xlIjoiQURNSU4iLCJleHAiOjE3MTY1NDQxMjAsImlzcyI6InRlc3QifQ.jyheSBuNzGmb4zYpay5OEOnzLYczUi4WSWSyqGmlsGE
+
+{
+  "name": "Humo",
+  "info": "Yoq",
+  "edu_center_id": 2
+}

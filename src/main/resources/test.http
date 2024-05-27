@@ -1,0 +1,23 @@
+POST localhost:8080/users/register
+Content-Type: application/json
+
+{
+  "firstName": "Hamidov",
+  "lastName": "Humoyun",
+  "phone": "974005611",
+  "password": "2222",
+  "role": "ADMIN"
+}
+
+###
+POST localhost:8080/users/login
+Content-Type: application/json
+
+{
+  "phone": "974005611",
+  "password": "2222"
+}
+
+###
+GET localhost:8080/users/get-all
+Authorization: Bearer eyJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE3MTY0NDQ2MTQsImlkIjoxLCJyb2xlIjoiQURNSU4iLCJleHAiOjE3MTY1MzEwMTQsImlzcyI6InRlc3QifQ.h7g_RQZYMQ2NEW9pj_j607yIBxL9Uq8l-Mkm8YCl2lw

@@ -1,7 +1,7 @@
 ###
 POST localhost:8080/api/v1/educational-center/create
 Content-Type: application/json
-Authorization: Bearer eyJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE3MTY0NTAxNjEsImlkIjoxLCJyb2xlIjoiQURNSU4iLCJleHAiOjE3MTY1MzY1NjEsImlzcyI6InRlc3QifQ.yfwL-ZG8E1EZTuad00yJldA_ZcLT2sNg1Kpmf6yI1-U
+Authorization: Bearer eyJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE3MTY5MTA5NTksImlkIjoxLCJyb2xlIjoiQURNSU4iLCJleHAiOjE3MTY5OTczNTksImlzcyI6InRlc3QifQ.oYyJlDZ0QGPJ9NHbpcCQwl3havSdCHendoVOqypUvRE
 
 {
   "name": "PDP university",
@@ -12,9 +12,9 @@ Authorization: Bearer eyJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE3MTY0NTAxNjEsImlkIjoxLCJyb
 }
 
 ###
-PUT localhost:8080/api/v1/educational-center/update-by-id/1
+PUT localhost:8080/api/v1/educational-center/update-by-id/106
 Content-Type: application/json
-Authorization: Bearer eyJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE3MTY0NTAxNjEsImlkIjoxLCJyb2xlIjoiQURNSU4iLCJleHAiOjE3MTY1MzY1NjEsImlzcyI6InRlc3QifQ.yfwL-ZG8E1EZTuad00yJldA_ZcLT2sNg1Kpmf6yI1-U
+Authorization: Bearer eyJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE3MTY5MDk0OTEsImlkIjoxLCJyb2xlIjoiQURNSU4iLCJleHAiOjE3MTY5OTU4OTEsImlzcyI6InRlc3QifQ.mAqW0zyt3p8n6Luz2iN1UNI7JYk0CQ3I4v1wJ4aY8L0
 
 {
   "name": "Cambridge",
@@ -25,16 +25,16 @@ Authorization: Bearer eyJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE3MTY0NTAxNjEsImlkIjoxLCJyb
 
 ###
 DELETE localhost:8080/api/v1/educational-center/delete-by-id/1
-Authorization: Bearer eyJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE3MTYzODMwNDgsImlkIjoxLCJyb2xlIjoiQURNSU4iLCJleHAiOjE3MTY0Njk0NDgsImlzcyI6InRlc3QifQ.IIDosXntVsG6otuuWnz1Cyvj94dwL8dj7QF_-j75jkU
+Authorization: Bearer eyJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE3MTY5MTA5NTksImlkIjoxLCJyb2xlIjoiQURNSU4iLCJleHAiOjE3MTY5OTczNTksImlzcyI6InRlc3QifQ.oYyJlDZ0QGPJ9NHbpcCQwl3havSdCHendoVOqypUvRE
 
 ###
 GET localhost:8080/api/v1/educational-center/get-all
 
 ###
-GET localhost:8080/api/v1/educational-center/get-by-id/1
+GET localhost:8080/api/v1/educational-center/get-by-id/106
 
 ###
-GET localhost:8080/api/v1/educational-center/get-by-name/PDP university
+GET localhost:8080/api/v1/educational-center/get-by-name/Cambridge
 
 ###
-GET localhost:8080/api/v1/educational-center/get-by-address/Sergeli
+GET localhost:8080/api/v1/educational-center/get-by-address/Ko'kcha

@@ -4,6 +4,7 @@ import com.example.components.ApiResponse;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.ArrayList;
 import java.util.List;
 
 @Service
@@ -17,46 +18,82 @@ public class EduSpecialityService {
         EduSpecialityEntity eduSpeciality = new EduSpecialityEntity();
         eduSpeciality.setName(dto.getName());
         eduSpeciality.setInfo(dto.getInfo());
-        eduSpeciality.setEduCenterId(dto.getEdu_center_id());
+        eduSpeciality.setEduCenterId(dto.getEduCenterId());
 
         eduSpecialityRepository.save(eduSpeciality);
 
         return new ApiResponse(true, "Muvaffaqiyatli yaratildi!", eduSpeciality);
     }
 
-    public List<EduSpecialityEntity>getAll() {
+    public List<EduSpecialityEntity> getAll() {
         List<EduSpecialityEntity> all = eduSpecialityRepository.findAll();
         return all;
     }
 
-    public EduSpecialityEntity getById(int id) {
-        return eduSpecialityRepository.getById(id);
+    public ApiResponse getById(int id) {
+        EduSpecialityEntity eduSpecialityEntity = eduSpecialityRepository
+                .findById(id)
+                .orElseThrow(() -> new RuntimeException("Topilmadi!!!"));
+
+        return new ApiResponse(true, toDto(eduSpecialityEntity));
+
     }
 
-    public List<EduSpecialityEntity> getByName(String name) {
-        return eduSpecialityRepository.findAllByName(name);
+    private EduSpecialtyDto toDto(EduSpecialityEntity eduSpecialityEntity) {
+        EduSpecialtyDto eduSpecialtyDto = new EduSpecialtyDto();
+        eduSpecialtyDto.setId(eduSpecialtyDto.getId());
+        eduSpecialtyDto.setName(eduSpecialityEntity.getName());
+        eduSpecialtyDto.setInfo(eduSpecialityEntity.getInfo());
+        eduSpecialtyDto.setEduCenterId(eduSpecialityEntity.getEduCenterId());
+        return eduSpecialtyDto;
     }
 
-    public List<EduSpecialityEntity> getAllByEduCenterId(int eduCenterId) {
-        return eduSpecialityRepository.findAllByEducationalCenterId(eduCenterId);
+    public List<EduSpecialtyDto> getByName(String name) {
+        List<EduSpecialityEntity> allByName = eduSpecialityRepository.findAllByName(name);
+        List<EduSpecialtyDto> eduSpecialtyDtos = new ArrayList<>();
+        allByName.forEach(eduSpecialityEntity -> {
+            EduSpecialtyDto eduSpecialtyDto = toDto(eduSpecialityEntity);
+            eduSpecialtyDtos.add(eduSpecialtyDto);
+        });
+        return eduSpecialtyDtos;
+    }
+
+    public List<EduSpecialtyDto> getAllByEduCenterId(int eduCenterId) {
+        List<EduSpecialityEntity> allByEducationalCenterId = eduSpecialityRepository
+                .findAllByEducationalCenterId(eduCenterId);
+
+        List<EduSpecialtyDto> eduSpecialtyDtos = new ArrayList<>();
+
+        allByEducationalCenterId.forEach(eduSpecialityEntity -> {
+            EduSpecialtyDto eduSpecialtyDto = toDto(eduSpecialityEntity);
+            eduSpecialtyDtos.add(eduSpecialtyDto);
+        });
+        return eduSpecialtyDtos;
+
     }
 
     public ApiResponse deleteById(int id) {
+
+        EduSpecialityEntity eduSpecialityEntity = get(id);
         eduSpecialityRepository.deleteById(id);
         return new ApiResponse(true, "O'chdi");
     }
 
     public ApiResponse updateById(int id, EduSpecialtyDto dto) {
 
-        EduSpecialityEntity eduSpeciality =eduSpecialityRepository.getById(id);
+        EduSpecialityEntity eduSpeciality = get(id);
 
         eduSpeciality.setName(dto.getName());
         eduSpeciality.setInfo(dto.getInfo());
-        eduSpeciality.setEduSpecialityId(dto.getEdu_center_id());
+        eduSpeciality.setEduSpecialityId(dto.getEduCenterId());
 
         eduSpecialityRepository.save(eduSpeciality);
 
         return new ApiResponse(true,
-                "Muvaffaqiyatli yangilandi!",eduSpeciality);
+                "Muvaffaqiyatli yangilandi!", eduSpeciality);
+    }
+
+    private EduSpecialityEntity get(int id) {
+        return eduSpecialityRepository.findById(id).orElseThrow(() -> new RuntimeException("Topilmadi!"));
     }
 }

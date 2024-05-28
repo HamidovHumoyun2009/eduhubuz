@@ -50,22 +50,25 @@ public class EduSpecialityController {
     }
 
     @GetMapping("/get-all")
-    public HttpEntity<List<EduSpecialityEntity>> getAll() {
+        public HttpEntity<List<EduSpecialityEntity>> getAll() {
         return ResponseEntity.ok(eduSpecialityService.getAll());
     }
 
-    @GetMapping("get-by-id/{id}")
-    public HttpEntity<EduSpecialityEntity> getById(@PathVariable int id) {
+    @GetMapping("/get-by-id/{id}")
+    public HttpEntity<ApiResponse> getById(
+            @PathVariable int id
+    ) {
         return ResponseEntity.ok(eduSpecialityService.getById(id));
     }
 
+
     @GetMapping("/get-by-name/{name}")
-    public HttpEntity<List<EduSpecialityEntity>>getByPhone(@PathVariable String name) {
+    public HttpEntity<List<EduSpecialtyDto>>getByPhone(@PathVariable String name) {
         return ResponseEntity.ok(eduSpecialityService.getByName(name));
     }
 
-    @GetMapping("get-all-by/{eduCenterId}")
-    public HttpEntity<List<EduSpecialityEntity>> getByPhone(@PathVariable int eduCenterId) {
+    @GetMapping("/get-all-by/{eduCenterId}")
+    public HttpEntity<List<EduSpecialtyDto>> getByPhone(@PathVariable int eduCenterId) {
         return ResponseEntity.ok(eduSpecialityService.getAllByEduCenterId(eduCenterId));
     }
 }

@@ -2,10 +2,8 @@ package com.example.educational_center;
 
 import com.example.auth.UserRole;
 import com.example.components.ApiResponse;
-import com.example.eduSpeciality.EduSpecialityEntity;
 import com.example.exp.UnAuthorizedException;
 import com.example.util.jwtUtil;
-import jakarta.persistence.OneToMany;
 import jakarta.servlet.http.HttpServletRequest;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpEntity;
@@ -23,7 +21,7 @@ public class EduController {
     private EduService eduService;
 
     @PostMapping("/create")
-    public HttpEntity<ApiResponse> create(HttpServletRequest request,
+    public HttpEntity<ApiResponse>create(HttpServletRequest request,
                                           @RequestBody EduDTO dto) {
         if (jwtUtil.checkRole(request, UserRole.ADMIN, UserRole.MODERATOR)) {
             return ResponseEntity.ok(eduService.create(dto));
@@ -32,7 +30,7 @@ public class EduController {
     }
 
     @PutMapping("/update-by-id/{id}")
-    public HttpEntity<ApiResponse> updateById(HttpServletRequest request,
+    public HttpEntity<ApiResponse>updateById(HttpServletRequest request,
                                               @PathVariable int id,
                                               @RequestBody EduDTO dto) {
         if (jwtUtil.checkRole(request, UserRole.ADMIN, UserRole.MODERATOR)) {
@@ -51,7 +49,7 @@ public class EduController {
     }
 
     @GetMapping("/get-all")
-    public HttpEntity<List<EduDTO>> getAll() {
+    public HttpEntity<List<EduDTO>>getAll() {
         return ResponseEntity.ok(eduService.getAll());
     }
 
@@ -61,8 +59,12 @@ public class EduController {
     }
 
     @GetMapping("/get-by-name/{name}")
-    public HttpEntity<List<EduDTO>> getByName(@PathVariable String name) {
-        return ResponseEntity.ok(eduService.getByName(name));
+    public ResponseEntity<List<EduDTO>>getByName(@PathVariable String name) {
+        List<EduDTO> result = eduService.getByName(name);
+        if (result == null || result.isEmpty()) {
+            return ResponseEntity.status(404).body(null);
+        }
+        return ResponseEntity.ok(result);
     }
 
     @GetMapping("/get-by-address/{address}")

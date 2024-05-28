@@ -32,7 +32,7 @@ public class UserService {
         return new TokenResponse(u.getId(), u.getRole(), token);
     }
 
-    public List<User> getAll(User user) {
+    public List<User> getAll() {
         return userRepository.findAll();
     }
 }

@@ -9,11 +9,7 @@ import java.util.List;
 
 public interface EduRepository extends JpaRepository<EducationalCenterEntity, Integer> {
 
-    EducationalCenterEntity getByName(String name);
+    List<EducationalCenterEntity>findAllByName(String name);
 
-    EducationalCenterEntity getByAddress(String address);
-
-    List<EduDTO> findAllByName(String name);
-
-    List<EduDTO> findAllByAddress(String address);
+    List<EducationalCenterEntity> findAllByAddress(String address);
 }

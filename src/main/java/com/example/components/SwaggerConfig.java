@@ -19,18 +19,11 @@ public class SwaggerConfig {
     public OpenAPI myOpenAPI() {
 
         Server devServer = new Server();
-        devServer.setUrl("www.google.com");
         devServer.setDescription("SERVER URL 🌐📃ℹ️🔍🙂");
-
-        Contact contact = new Contact();
-        contact.setEmail("www.google.uz");
-        contact.setName("Project X");
-        contact.setUrl("www.google.uz");
 
         Info info = new Info()
                 .title("google.com Management API")
                 .version("1.0")
-                .contact(contact)
                 .description("This API exposes endpoints to manage tutorials.")
                 .termsOfService("https://www.bezkoder.com/terms")
                 .license(null);

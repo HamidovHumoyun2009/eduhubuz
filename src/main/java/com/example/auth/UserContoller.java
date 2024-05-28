@@ -27,10 +27,9 @@ public class UserContoller {
     }
 
     @GetMapping("/get-all")
-    public HttpEntity<List<User>>getAllUsers(HttpServletRequest request,
-                                              @RequestBody User user){
+    public HttpEntity<List<User>>getAllUsers(HttpServletRequest request){
         if (jwtUtil.checkRole(request, UserRole.ADMIN)) {
-            return ResponseEntity.ok(userService.getAll(user));
+            return ResponseEntity.ok(userService.getAll());
         }
         throw new UnAuthorizedException();
     }

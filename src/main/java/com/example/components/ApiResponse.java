@@ -15,6 +15,11 @@ public class ApiResponse {
         this.status = status;
     }
 
+    public ApiResponse(Boolean status, Object object) {
+        this.status = status;
+        this.object = object;
+    }
+
     public ApiResponse(Boolean status, String message, Object object) {
         this.message = message;
         this.status = status;
